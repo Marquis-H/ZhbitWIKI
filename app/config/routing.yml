@@ -1,0 +1,13 @@
+common:
+    resource: "@CommonBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+wechat:
+    resource: "@WechatBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation

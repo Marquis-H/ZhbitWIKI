@@ -2,8 +2,6 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
-    - { resource: "@ZhbitWIKICommonBundle/Resources/config/services.yml" }
-    - { resource: "@ZhbitWIKIWechatBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -67,15 +65,15 @@ swiftmailer:
     password:  "%mailer_password%"
     spool:     { type: memory }
 
-wechat:
-    app_id: "%app_id%"
-    app_secret: "%app_secret%"
-    token: "%token%"
-    cache_provider_id: wechat_cache
-    user_class: CommonBundle\Entity\WechatUser
-    alias: wechat_sdk
-    payment:
-        merchant_id: %merchant_id%
-        key: %key%
-        cert_path: "%kernel.root_dir%/../data/%kernel.environment%/cert/apiclient_cert.pem"
-        key_path: "%kernel.root_dir%/../data/%kernel.environment%/cert/apiclient_key.pem"
+#wechat:
+#    app_id: "%app_id%"
+#    app_secret: "%app_secret%"
+#    token: "%token%"
+#    cache_provider_id: wechat_cache
+#    user_class: CommonBundle\Entity\WechatUser
+#    alias: wechat_sdk
+#    payment:
+#        merchant_id: %merchant_id%
+#        key: %key%
+#        cert_path: "%kernel.root_dir%/../data/%kernel.environment%/cert/apiclient_cert.pem"
+#        key_path: "%kernel.root_dir%/../data/%kernel.environment%/cert/apiclient_key.pem"

@@ -1,4 +1,12 @@
 services:
-#    zhbit_wiki_wechat.example:
-#        class: ZhbitWIKI\WechatBundle\Example
-#        arguments: ["@service_id", "plain_value", %parameter%]
+    #Factory
+    zhbitwiki_wechat.factory.easywechat_factory:
+        class: ZhbitWIKI\WechatBundle\Factory\EasyWeChatFactory
+
+    #Extension
+    zhbitwiki_wechat.extension.wechat.sdk:
+        class: ZhbitWIKI\WechatBundle\DependencyInjection\WechatExtension
+        factory: [ "@zhbitwiki_wechat.factory.easywechat_factory", createNewInstance ]
+        arguments: [ "logger" ]
+        tags:
+            - { name: monolog.logger, channel: wechat }

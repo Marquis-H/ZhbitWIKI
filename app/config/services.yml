@@ -1,5 +1,9 @@
 # Learn more about services, parameters and containers at
 # http://symfony.com/doc/current/book/service_container.html
+imports:
+    - { resource: "@ZhbitWIKICommonBundle/Resources/config/services.yml" }
+    - { resource: "@ZhbitWIKIWechatBundle/Resources/config/services.yml" }
+
 parameters:
 #    parameter_name: value
 

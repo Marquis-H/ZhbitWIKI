@@ -1,6 +1,6 @@
 <?php
 
-namespace CommonBundle\Tests\Controller;
+namespace ZhbitWIKI\WechatBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

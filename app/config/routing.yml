@@ -1,13 +1,14 @@
-common:
-    resource: "@CommonBundle/Controller/"
+zhbit_wiki_wechat:
+    resource: "@ZhbitWIKIWechatBundle/Controller/"
     type:     annotation
     prefix:   /
 
-wechat:
-    resource: "@WechatBundle/Controller/"
+zhbit_wiki_common:
+    resource: "@ZhbitWIKICommonBundle/Controller/"
     type:     annotation
     prefix:   /
 
-app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
+
+
+
+

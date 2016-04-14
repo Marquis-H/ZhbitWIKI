@@ -11,8 +11,18 @@ namespace ZhbitWIKI\WechatBundle\Factory;
 use EasyWeChat\Foundation\Application;
 use EasyWeChat\Support\Log;
 
+/**
+ * Class EasyWeChatFactory
+ * @package ZhbitWIKI\WechatBundle\Factory
+ */
 class EasyWeChatFactory
 {
+    /**
+     * @param $config
+     * @param $cache
+     * @param $logger
+     * @return Application
+     */
     public static function createNewInstance($config, $cache, $logger)
     {
         Log::setLogger($logger);

@@ -17,22 +17,32 @@ class WechatFactory implements SecurityFactoryInterface
 {
     public function create(ContainerBuilder $container, $id, $config, $userProvider, $defaultEntryPoint)
     {
-        $providerId = 'security.authentication.provider.wechat.'.$id;
+        $providerId = 'security.authentication.provider.wechat.' . $id;
+        $container->setDefinition($providerId, new DefinitionDecorator('zhbitwiki_wechat.security.wechat_provider'));
+
+        $listenerId = 'security.authentication.listener.wechat.' . $id;
+        $container->setDefinition($listenerId, new DefinitionDecorator('zhbitwiki_wechat.security.wechat_listener'));
+
+        return array($providerId, $listenerId, $defaultEntryPoint);
     }
 
     public function getPosition()
     {
-        // TODO: Implement getPosition() method.
+        return 'pre_auth';
     }
 
     public function getKey()
     {
-        // TODO: Implement getKey() method.
+        return 'wechat_login';
     }
 
     public function addConfiguration(NodeDefinition $builder)
     {
-        // TODO: Implement addConfiguration() method.
+        $builder
+            ->children()
+            ->scalarNode('authorize_path')->isRequired()->end()
+            ->scalarNode('default_redirect')->end()
+            ->end();
     }
 
 }

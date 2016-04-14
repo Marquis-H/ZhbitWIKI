@@ -5,8 +5,24 @@ services:
 
     #Extension
     zhbitwiki_wechat.extension.wechat.sdk:
-        class: ZhbitWIKI\WechatBundle\DependencyInjection\WechatExtension
+        class: EasyWeChat\Foundation\Application
         factory: [ "@zhbitwiki_wechat.factory.easywechat_factory", createNewInstance ]
-        arguments: [ "logger" ]
+        arguments: [ "@logger", '' ]
         tags:
             - { name: monolog.logger, channel: wechat }
+
+    #Security
+    zhbitwiki_wechat.security.wechat_provider:
+        class: ZhbitWIKI\WechatBundle\Security\Authentication\Provider\WechatProvider
+        arguments: [ "%wechat.user_class%", '@doctrine.orm.default_entity_manager' ]
+
+    zhbitwiki_wechat.security.wechat_listener:
+        class: ZhbitWIKI\WechatBundle\Security\Firewall\WechatListener
+        arguments:
+            - [ "@security.token_storage" ]
+            - [ "@security.authentication.manager" ]
+            - [ "@security.http_utils" ]
+            - [ "@zhbitwiki_wechat.extension.wechat.sdk" ]
+            - [ "@event_dispatcher" ]
+
+

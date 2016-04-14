@@ -44,7 +44,7 @@ doctrine:
         dbname:   "%database_name%"
         user:     "%database_user%"
         password: "%database_password%"
-        charset:  UTF8
+        charset:  utf8mb4
         # if using pdo_sqlite as your database driver:
         #   1. add the path in parameters.yml
         #     e.g. database_path: "%kernel.root_dir%/data/data.db3"
@@ -65,15 +65,15 @@ swiftmailer:
     password:  "%mailer_password%"
     spool:     { type: memory }
 
-#wechat:
-#    app_id: "%app_id%"
-#    app_secret: "%app_secret%"
-#    token: "%token%"
-#    cache_provider_id: wechat_cache
-#    user_class: CommonBundle\Entity\WechatUser
-#    alias: wechat_sdk
-#    payment:
-#        merchant_id: %merchant_id%
-#        key: %key%
-#        cert_path: "%kernel.root_dir%/../data/%kernel.environment%/cert/apiclient_cert.pem"
-#        key_path: "%kernel.root_dir%/../data/%kernel.environment%/cert/apiclient_key.pem"
+zhbit_wiki_wechat:
+    app_id: "%app_id%"
+    app_secret: "%app_secret%"
+    token: "%token%"
+    cache_provider_id: wechat_cache
+    user_class: CommonBundle\Entity\WechatUser
+    alias: wechat_sdk
+    payment:
+        merchant_id: %merchant_id%
+        key: %key%
+        cert_path: "%kernel.root_dir%/../data/%kernel.environment%/cert/apiclient_cert.pem"
+        key_path: "%kernel.root_dir%/../data/%kernel.environment%/cert/apiclient_key.pem"

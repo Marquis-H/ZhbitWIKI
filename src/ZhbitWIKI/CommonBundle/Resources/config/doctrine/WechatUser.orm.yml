@@ -1,0 +1,29 @@
+ZhbitWIKI\CommonBundle\Entity\WechatUser:
+    type: entity
+    table: zhbitwiki_wechat_user
+    repositoryClass: ZhbitWIKI\CommonBundle\Repository\WechatUserRepository
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        openId:
+            type: string
+        nickName:
+            type: string
+        sex:
+            type: string
+            nullable: true
+        province:
+            type: string
+            nullable: true
+        city:
+            type: string
+            nullable: true
+        country:
+            type: string
+            nullable: true
+        avatar:
+            type: string
+            nullable: true
